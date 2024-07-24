@@ -47,15 +47,15 @@ def form():
     return render_template('form.html')
 
 #Resultados del formulario
-@app.route('/submit', methods=['POST'])
+@app.route('/submit', methods=['GET','POST'])
 def submit_form():
     # Declarar variables para la recogida de datos
     name = request.form['name']
-
+    address = request.form['address']
+    date = request.form['date']
+    email = request.form['email']
     # Puedes guardar tus datos o enviarlos por correo electrónico
-    return render_template('form_result.html', 
-                           # Coloque aquí las variables
-                           name=name,
-                           )
+    return render_template('form_result.html', name=name, address=address, date=date, email=email)
+                           
 
 app.run(debug=True)
